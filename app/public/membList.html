@@ -59,24 +59,26 @@
     <br>
 
     <div class="container">
-      <h1 class="heading"> Certifications </h1>
-      <div id="viewCert">
+      <h1 class="heading"> Members </h1>
+      <div id="viewMembs">
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">cID</th>
+              <th scope="col">pId</th>
               <th scope="col">Name</th>
-              <th scope="col">Agency</th>
-              <th scope="col">Exp. Date</th>
+              <th scope="col">Station</th>
+              <th scope="col">Radio Number</th>
+              <th scope="col">Email</th>
               <th scope="col">View</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="c in certifications">
-              <th scope="row">{{ c.cID }}</th>
-              <td>{{ c.cName }}</td>
-              <td>{{ c.cAgency }}</td>
-              <td>{{ c.expPeriod }}</td>
+            <tr v-for="p in people">
+              <th scope="row">{{ p.pID }}</th>
+              <td>{{ p.firstName }} {{ p.lastName }}</td>
+              <td>{{ p.stationNumber }}</td>
+              <td>{{ p.radioNumber }}</td>
+              <td>{{ p.email }}</td>
               <td><button type="button" class="btn btn-danger">View</button></td>
             </tr>
           </tbody>
@@ -91,6 +93,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- Optional JavaScript -->
-    <script src="js/viewCert.app.js"></script>
+    <script src="js/viewMembs.app.js"></script>
   </body>
 </html>
