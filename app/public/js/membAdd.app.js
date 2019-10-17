@@ -24,7 +24,6 @@ var membAdd = new Vue({
     },
     handleReset() {
       this.person = {
-        patientGuid: '',
         firstName: '',
         lastName: '',
         dob: '',
@@ -37,7 +36,7 @@ var membAdd = new Vue({
         state: '',
         zip: '',
         startDate: '',
-        obTitle: '',
+        jobTitle: '',
         radioNumber: '',
         stationNumber: '',
         isActive: ''
@@ -45,6 +44,6 @@ var membAdd = new Vue({
     }
   },
   created() {
-    //this.handleReset();
+    this.handleReset();
   }
 });
