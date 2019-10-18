@@ -3,12 +3,16 @@
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
 
+$sql = 'SELECT * FROM people';
+$vals = [];
+
+if (isset($_GET['id'])) {
+  $sql .= ' WHERE pID = ?';
+  $vals[] = $_GET['id'];
+}
 // Step 2: Create & run the query
-$stmt = $db->prepare(
-  'SELECT *
-  FROM people'
-);
-$stmt->execute();
+$stmt = $db->prepare($sql);
+$stmt->execute($vals);
 $patients = $stmt->fetchAll();
 
 // Step 3: Convert to JSON

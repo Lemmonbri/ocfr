@@ -12,8 +12,7 @@ var membAdd = new Vue({
            "Content-Type": "application/json; charset=utf-8"
          }
        })
-       .then( response => response.json() )
-       .then( json => {viewMembs.people = json})
+       .then( response => window.location = './membList.html' )
        .catch( err => {
          console.error('PEOPLE POST ERROR:');
          console.error(err);

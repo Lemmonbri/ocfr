@@ -1,7 +1,7 @@
 var membAdd = new Vue({
   el: '#membAdd',
   data: {
-    people: [],
+    // people: [],
     recordPerson: {}
   },
   methods: {
@@ -11,15 +11,14 @@ var membAdd = new Vue({
     //   .then(json => { membAdd.people = json })
     // },
     handleSubmit(event) {
-      fetch('api/records/', {
+      fetch('api/people/post.php', {
         method:'POST',
         body: JSON.stringify(this.recordPerson),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-      .then( response => response.json() )
-      .then( json => { membAdd.people.push( json[0] ) })
+      .then( response => window.location = './membList.html' )
       .catch( err => {
         console.error('RECORD POST ERROR:');
         console.error(err);

@@ -7,8 +7,13 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 $stmt = $db->prepare(
-  'INSERT INTO people (firstName, lastName, dob, gender, email, wPhone, mPhone, address, city, state, zip, startDate, jobTitle, radioNumber, stationNumber, isActive)
-  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+  'INSERT INTO people (firstName, lastName, dob,
+    gender, email, wPhone,
+    mPhone, address, city,
+    state, zip, startDate,
+    jobTitle, radioNumber, stationNumber,
+    isActive)
+  VALUES (?,?,?, ?,?,?, ?,?,?, ?,?,?, ?,?,?, ?)'
 );
 $stmt->execute([
   $_POST['firstName'],
@@ -28,3 +33,8 @@ $stmt->execute([
   $_POST['stationNumber'],
   $_POST['isActive']
 ]);
+// 
+// $id = $db->lastInsertId();
+//
+// header('HTTP/1.1 303 See Other');
+// header('Location: ./index.php?id='.$id);
