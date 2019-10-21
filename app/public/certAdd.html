@@ -63,21 +63,21 @@
     <br>
 
     <div class="container">
-      <div id="membAdd">
+      <div id="certAdd">
         <form @submit.prevent="handleSubmit">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputCertAgency">Certifying Agency</label>
-              <input type="text" class="form-control" id="certAgency" placeholder="Certifying Agency">
+              <input type="text" class="form-control" id="certAgency" v-model="recordCert.cAgency" placeholder="Certifying Agency">
             </div>
             <div class="form-group col-md-6">
               <label for="inputCertName">Certification Name</label>
-              <input type="text" class="form-control" id="certName" placeholder="Certification Name">
+              <input type="text" class="form-control" id="certName" v-model="recordCert.cName" placeholder="Certification Name">
             </div>
 
             <div class="form-group col-md-6">
               <label for="inputExpirationDate">Expiration Period</label>
-              <input type="text" class="form-control" id="expPeriod">
+              <input type="text" class="form-control" id="expPeriod" v-model="recordCert.expPeriod">
             </div>
             </div>
           </div>
@@ -98,7 +98,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- Optional JavaScript -->
-    <script src="js/membAdd.app.js"></script>
+    <script src="js/certAdd.app.js"></script>
 
   </body>
 </html>
