@@ -1,28 +1,34 @@
 var membAdd = new Vue({
   el: '#membAdd',
   data: {
-    person: {}
+    // people: [],
+    recordPerson: {}
   },
   methods: {
-    handleSubmit() {
-       fetch('api/people/post.php', {
-         method:'POST',
-         body: JSON.stringify(this.person),
-         headers: {
-           "Content-Type": "application/json; charset=utf-8"
-         }
-       })
-       .then( response => window.location = './membList.html' )
-       .catch( err => {
-         console.error('PEOPLE POST ERROR:');
-         console.error(err);
-      });
+    // fetchPeople() {
+    //   fetch('api/records/index.php')
+    //   .then(response => response.json())
+    //   .then(json => { membAdd.people = json })
+    // },
+    handleSubmit(event) {
+      fetch('api/people/post.php', {
+        method:'POST',
+        body: JSON.stringify(this.recordPerson),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => window.location = './membList.html' )
+      .catch( err => {
+        console.error('RECORD POST ERROR:');
+        console.error(err);
+        //"JSON.parse: unexpected end of data at line 1 column 1 of the JSON data"
+     });
 
-       // waitingApp.patients.push(this.patient);
-       this.handleReset();
+      this.handleReset();
     },
     handleReset() {
-      this.person = {
+      this.recordPerson = {
         firstName: '',
         lastName: '',
         dob: '',
@@ -41,8 +47,10 @@ var membAdd = new Vue({
         isActive: ''
       }
     }
-  },
+
+  }, // end methods
   created() {
     this.handleReset();
+    //this.fetchPeople();
   }
 });

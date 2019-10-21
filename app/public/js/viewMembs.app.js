@@ -10,6 +10,7 @@ var viewMembs = new Vue({
       .then(json => { viewMembs.people = json })
     }
   },
+
   created() {
     this.fetchMembs();
   }
