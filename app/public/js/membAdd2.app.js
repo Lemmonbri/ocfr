@@ -46,10 +46,7 @@ var membAdd = new Vue({
         stationNumber: '',
         isActive: ''
       }
-    },
-    //handleRowClick(patient) {
-    //  patientTriageApp.patient = patient;
-    //}
+    }
 
   }, // end methods
   created() {
