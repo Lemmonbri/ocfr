@@ -1,4 +1,4 @@
-var membAdd = new Vue({
+var certAdd = new Vue({
   el: '#certAdd',
   data: {
     // people: [],
