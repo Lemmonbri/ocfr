@@ -1,8 +1,7 @@
 var membAdd = new Vue({
   el: '#membAdd',
   data: {
-    // people: [],
-    recordPerson: {}
+    person: {}
   },
   methods: {
     // fetchPeople() {
@@ -13,22 +12,21 @@ var membAdd = new Vue({
     handleSubmit(event) {
       fetch('api/people/post.php', {
         method:'POST',
-        body: JSON.stringify(this.recordPerson),
+        body: JSON.stringify(this.person),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
         }
       })
       .then( response => window.location = './membList.html' )
       .catch( err => {
-        console.error('RECORD POST ERROR:');
+        console.error(' POST ERROR:');
         console.error(err);
-        //"JSON.parse: unexpected end of data at line 1 column 1 of the JSON data"
      });
 
       this.handleReset();
     },
     handleReset() {
-      this.recordPerson = {
+      this.person = {
         firstName: '',
         lastName: '',
         dob: '',
@@ -46,8 +44,28 @@ var membAdd = new Vue({
         stationNumber: '',
         isActive: ''
       }
-    }
+    },
+    handleUpdate(event) {
+      fetch('api/people/update.php', {
+        method:'POST',
+        body: JSON.stringify(this.person),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      this.handleReset();
+    },
 
+    handleDelete(){
+      fetch('api/people/delete.php', {
+        method:'POST',
+        body: JSON.stringify(this.person),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      this.handleReset();
+    }
   }, // end methods
   created() {
     this.handleReset();
