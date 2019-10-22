@@ -79,7 +79,7 @@
               <td>{{ p.stationNumber }}</td>
               <td>{{ p.radioNumber }}</td>
               <td>{{ p.email }}</td>
-              <td><button type="button" class="btn btn-danger" v-on:click="viewMember">View</button></td>
+              <td><button type="button" class="btn btn-danger" v-on:click="viewMember(p)">View</button></td>
             </tr>
           </tbody>
         </table>
@@ -94,6 +94,5 @@
 
     <!-- Optional JavaScript -->
     <script src="js/viewMembs.app.js"></script>
-    <script src="js/viewMember.app.js"></script>
   </body>
 </html>
