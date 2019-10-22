@@ -27,6 +27,7 @@ var membAdd = new Vue({
     },
     handleReset() {
       this.person = {
+        pID: '',
         firstName: '',
         lastName: '',
         dob: '',
