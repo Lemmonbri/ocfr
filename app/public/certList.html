@@ -59,28 +59,72 @@
     <br>
 
     <div class="container">
-      <h1 class="heading"> Certifications </h1>
-      <div id="viewCert">
-        <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">cID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Agency</th>
-              <th scope="col">Exp. Date</th>
-              <th scope="col">View</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="c in certifications">
-              <th scope="row">{{ c.cID }}</th>
-              <td>{{ c.cName }}</td>
-              <td>{{ c.cAgency }}</td>
-              <td>{{ c.expPeriod }}</td>
-              <td><button type="button" class="btn btn-danger">View</button></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row">
+        <h1 class="heading col-12"> Certifications </h1>
+      </div>
+      <div class="row">
+        <div class="offset-10 col-1">
+          <button onclick="exportTableToCSV('certifications.csv')" class="btn btn-primary">Download</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div id="viewCert">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">cID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Agency</th>
+                  <th scope="col">Exp. Period</th>
+                  <th scope="col">View</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="c in certifications" @click="handleRowClick(c)">
+                  <th scope="row">{{ c.cID }}</th>
+                  <td>{{ c.cName }}</td>
+                  <td>{{ c.cAgency }}</td>
+                  <td>{{ c.expPeriod }}</td>
+                  <td><button type="button" class="btn btn-danger" v-on:click="handleRowClick(c)">View</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="certAdd">
+        <form @submit.prevent="handleUpdate">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputcID">cID</label>
+              <input type="text" class="form-control" id="cID" v-model="certification.cID" placeholder="#" readonly>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputCertName">Certification Name</label>
+              <input type="text" class="form-control" id="certName" v-model="certification.cName" placeholder="Certification Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputCertAgency">Certifying Agency</label>
+              <input type="text" class="form-control" id="certAgency" v-model="certification.cAgency" placeholder="Certifying Agency">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputExpirationDate">Expiration Period</label>
+              <input type="number" class="form-control" id="expPeriod" v-model="certification.expPeriod">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <button type="submit" class="btn btn-primary">Update Certification</button>
+            </div>
+            <div class="col-3 offset-6">
+              <button type="" class="btn btn-danger" v-on:click="handleDelete">Delete Certification</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
 
@@ -91,6 +135,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- Optional JavaScript -->
-    <script src="js/viewCert.app.js"></script>
+    <script src="js/viewCerts.app.js"></script>
+    <script src="js/certAdd.app.js"></script>
+
+    <!--- Code by CodexWorld found here: https://www.codexworld.com/export-html-table-data-to-csv-using-javascript/ -->
+    <script src="js/downloadCSV.app.js"></script>
   </body>
 </html>

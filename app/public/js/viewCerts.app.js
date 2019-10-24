@@ -5,9 +5,12 @@ var viewCert = new Vue({
   },
   methods: {
     fetchCerts() {
-      fetch('api/certifications')
+      fetch('api/certifications/')
       .then(response => response.json())
       .then(json => { viewCert.certifications = json })
+    },
+    handleRowClick(c) {
+      certAdd.certification = c;
     }
   },
   created() {

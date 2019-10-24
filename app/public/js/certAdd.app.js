@@ -2,7 +2,7 @@ var certAdd = new Vue({
   el: '#certAdd',
   data: {
     // people: [],
-    recordCert: {}
+    certification: {}
   },
   methods: {
     // fetchPeople() {
@@ -13,7 +13,7 @@ var certAdd = new Vue({
     handleSubmit(event) {
       fetch('api/certifications/post.php', {
         method:'POST',
-        body: JSON.stringify(this.recordCert),
+        body: JSON.stringify(this.certification),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
         }
@@ -27,8 +27,29 @@ var certAdd = new Vue({
 
       this.handleReset();
     },
+    handleUpdate(event) {
+      fetch('api/certifications/update.php', {
+        method:'POST',
+        body: JSON.stringify(this.certification),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      this.handleReset();
+    },
+
+    handleDelete(){
+      fetch('api/certifications/delete.php', {
+        method:'POST',
+        body: JSON.stringify(this.certification),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      this.handleReset();
+    },
     handleReset() {
-      this.recordCert = {
+      this.certification = {
         cName: '',
         cAgency: '',
         expPeriod: ''
