@@ -4,11 +4,6 @@ var membAdd = new Vue({
     person: {}
   },
   methods: {
-    // fetchPeople() {
-    //   fetch('api/records/index.php')
-    //   .then(response => response.json())
-    //   .then(json => { membAdd.people = json })
-    // },
     handleSubmit(event) {
       fetch('api/people/post.php', {
         method:'POST',
