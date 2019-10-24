@@ -57,32 +57,46 @@
     <br>
     <br>
     <br>
+    <div class="container">
+
+    </div>
 
     <div class="container">
-      <h1 class="heading"> Members </h1>
-      <div id="viewMembs">
-        <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">pId</th>
-              <th scope="col">Name</th>
-              <th scope="col">Station</th>
-              <th scope="col">Radio Number</th>
-              <th scope="col">Email</th>
-              <th scope="col">View</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="p in people" @click="handleRowClick(p)">
-              <th scope="row">{{ p.pID }}</th>
-              <td>{{ p.firstName }} {{ p.lastName }}</td>
-              <td>{{ p.stationNumber }}</td>
-              <td>{{ p.radioNumber }}</td>
-              <td>{{ p.email }}</td>
-              <td><button type="button" class="btn btn-danger" v-on:click="handleRowClick(p)">View</button></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row">
+        <h1 class="heading col-12"> Members </h1>
+      </div>
+      <div class="row">
+        <div class="offset-10 col-1">
+          <button onclick="exportTableToCSV('members.csv')" class="btn btn-primary">Download</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div id="viewMembs">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">pId</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Station</th>
+                  <th scope="col">Radio Number</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">View</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="p in people" @click="handleRowClick(p)">
+                  <th scope="row">{{ p.pID }}</th>
+                  <td>{{ p.firstName }} {{ p.lastName }}</td>
+                  <td>{{ p.stationNumber }}</td>
+                  <td>{{ p.radioNumber }}</td>
+                  <td>{{ p.email }}</td>
+                  <td><button type="button" class="btn btn-danger" v-on:click="handleRowClick(p)">View</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -185,6 +199,7 @@
     <!-- Optional JavaScript -->
     <script src="js/viewMembs.app.js"></script>
     <script src="js/membAdd.app.js"></script>
+    <script src="js/downloadCSV.app.js"></script>
 
   </body>
 </html>

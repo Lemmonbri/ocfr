@@ -31,6 +31,7 @@ CREATE TABLE certifications(
 CREATE TABLE people_certifications(
 	pID int,
 	cID int,
+    received DATE,
     PRIMARY KEY (pID, cID),
 	FOREIGN KEY (pID) REFERENCES people(pID),
     FOREIGN KEY (cID) REFERENCES certifications(cID)
