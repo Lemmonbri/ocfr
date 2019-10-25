@@ -1,6 +1,7 @@
 var viewMembs = new Vue({
   el: '#viewMembs',
   data: {
+    selected: '',
     people: []
   },
   methods: {
@@ -9,7 +10,7 @@ var viewMembs = new Vue({
       .then(response => response.json())
       .then(json => { viewMembs.people = json })
     },
-    
+
     handleRowClick(p) {
       membAdd.person = p;
     }

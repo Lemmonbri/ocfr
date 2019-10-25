@@ -1,11 +1,12 @@
 var viewCert = new Vue({
   el: '#viewCert',
   data: {
+    selected: '',
     certifications: []
   },
   methods: {
     fetchCerts() {
-      fetch('api/certifications/')
+      fetch('api/certifications/index.php')
       .then(response => response.json())
       .then(json => { viewCert.certifications = json })
     },

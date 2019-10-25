@@ -54,38 +54,78 @@
       </div>
     </nav>
 
-    <br>
-    <br>
-    <div class="container">
-      <h1 class="heading">Add Certification for a Member</h1>
-    </div>
-    <br>
-    <br>
-    <br>
-    <div class="container">
-      <form>
-        <div class="form-group" id= "viewMembs">
-          <label for="selectMember">Select Member</label>
-          <select class="form-control" id="selectMember" v-for="p in persons" v-model="membCert.firstName">
-            <option>{{p.firstName}} {{p.lastName}}</option>
-          </select>
-        </div>
-        <div class="form-group" id= "viewCerts">
-          <label for="selectCert">Select Certification</label>
-          <select class="form-control" id="selectCert" v-for="c in certfications" v-model="membCert.cName">
-            <option>{{c.cName}}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="inputStartDate">Date Received</label>
-          <input type="date" class="form-control" id="received" v-model="membCert.received">
+
+    <div id="certMemb">
+      <div class="container">
+        <div class="row">
+          <h1 class="heading col-12"> Member Certifications </h1>
         </div>
         <div class="row">
-          <div class="offset-11 col-1">
-            <button type="submit" class="btn btn-primary">Add</button>
+          <div class="offset-10 col-1">
+            <button onclick="exportTableToCSV('membCerts.csv')" class="btn btn-primary">Download</button>
           </div>
         </div>
-      </form>
+        <div class="row">
+          <div class="col-12">
+            <div>
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">pID</th>
+                    <th scope="col">Member</th>
+                    <th scope="col">cID</th>
+                    <th scope="col">Certfication</th>
+                    <th scope="col">Date Received</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="pc in peopleCert" @click="handleRowClick(pc)">
+                    <th scope="row">{{ pc.pID }}</th>
+                    <th>{{ pc.firstName }} {{ pc.lastName }}</th>
+                    <td>{{ pc.cID }}</td>
+                    <td>{{ pc.cName }}</td>
+                    <td>{{ pc.received }}</td>
+                    <td><button type="button" class="btn btn-danger" v-on:click="handleRowClick(pc)">View</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="container">
+        <form @submit.prevent="handleUpdate">
+          <div class="form-group">
+            <label for="selectMember">Select Member</label>
+            <select class="form-control" v-model="selection.pID">
+              <option v-for="p in people" v-bind:value="p.pID">{{p.pID}} - {{p.firstName}} {{p.lastName}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="selectCert">Select Certification</label>
+            <select class="form-control" v-model="selection.cID">
+              <option v-for="c in certifications" v-bind:value="c.cID">{{c.cID}} - {{c.cName}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="inputStartDate">Date Received</label>
+            <input type="date" class="form-control" v-model="selection.received">
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+            <div class="col-3 offset-6">
+              <button type="" class="btn btn-danger" v-on:click="handleDelete">Delete</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
 
 
@@ -97,9 +137,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- Optional JavaScript -->
-    <script src="js/viewMembs.app.js"></script>
-    <script src="js/viewCerts.app.js"></script>
-    <script src="js/certMembAdd.app.js"></script>
+    <script src="js/certMemb.app.js"></script>
 
   </body>
 </html>

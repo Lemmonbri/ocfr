@@ -1,7 +1,5 @@
 <?php
 
-// 0. Validate my data
-
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
 
@@ -12,11 +10,3 @@ $stmt->execute([
     $_POST['cID']
   ]
 );
-
-// Step 3: Create & run the query
-$stmt = $db->prepare('INSERT INTO people_certifications (pID, cID, received) VALUES (?,?,?)');
-$stmt->execute([
-  $_POST['pID'],
-  $_POST['cID'],
-  $_POST['received']
-]);
