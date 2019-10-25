@@ -4,13 +4,12 @@
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$stmt = $db->prepare('UPDATE people_certifications SET pID = ?, cID = ?, received = ? WHERE pID = ? AND cID = ?');
+$stmt = $db->prepare('UPDATE people_certifications SET pID = ?, cID = ?, received = ? WHERE pcID = ?');
 
 $stmt->execute([
     $_POST['pID'],
     $_POST['cID'],
     $_POST['received'],
-    $_POST['pID'],
-    $_POST['cID']
+    $_POST['pcID']
   ]
 );

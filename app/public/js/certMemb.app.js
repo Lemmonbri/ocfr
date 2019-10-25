@@ -5,6 +5,7 @@ var certMemb = new Vue({
     certifications: [],
     peopleCert: [],
     selection:{
+      pcID: '',
       pID: '',
       cID: '',
       received: ''
@@ -37,7 +38,7 @@ var certMemb = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-      .then( response => window.location = './certMemb.html' )
+      .then( response => window.location = './membCert.html' )
       .catch( err => {
         console.error('RECORD POST ERROR:');
         console.error(err);

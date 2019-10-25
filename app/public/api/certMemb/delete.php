@@ -4,9 +4,8 @@
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$stmt = $db->prepare('DELETE FROM people_certifications WHERE pID = ? AND cID = ?');
+$stmt = $db->prepare('DELETE FROM people_certifications WHERE pcID = ?');
 $stmt->execute([
-    $_POST['pID'],
-    $_POST['cID']
+    $_POST['pcID']
   ]
 );

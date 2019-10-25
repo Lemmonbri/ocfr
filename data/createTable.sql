@@ -29,10 +29,10 @@ CREATE TABLE certifications(
 );
 
 CREATE TABLE people_certifications(
+	pcID int PRIMARY KEY AUTO_INCREMENT,
 	pID int,
 	cID int,
-    received DATE,
-    PRIMARY KEY (pID, cID),
+  received DATE,
 	FOREIGN KEY (pID) REFERENCES people(pID),
-    FOREIGN KEY (cID) REFERENCES certifications(cID)
+  FOREIGN KEY (cID) REFERENCES certifications(cID)
 );

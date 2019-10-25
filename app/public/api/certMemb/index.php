@@ -5,7 +5,7 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 $stmt = $db->prepare(
-  'SELECT pc.pID as pID, pc.cID as cID, pc.received as received, p.firstName as firstName, p.lastName as lastName, c.cName as cName
+  'SELECT pc.pcID as pcID, pc.pID as pID, pc.cID as cID, pc.received as received, p.firstName as firstName, p.lastName as lastName, c.cName as cName
    FROM people as p, certifications as c, people_certifications as pc
    WHERE p.pID = pc.pID AND c.cID = pc.cID'
 );

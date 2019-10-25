@@ -1,0 +1,10 @@
+insert into people_certifications (pcID, pID, cID, received) values (1, 5, 6, '2017-06-19');
+insert into people_certifications (pcID, pID, cID, received) values (2, 2, 7, '2019-01-01');
+insert into people_certifications (pcID, pID, cID, received) values (3, 5, 7, '2015-12-27');
+insert into people_certifications (pcID, pID, cID, received) values (4, 5, 1, '2018-03-18');
+insert into people_certifications (pcID, pID, cID, received) values (5, 3, 4, '2010-04-08');
+insert into people_certifications (pcID, pID, cID, received) values (6, 2, 1, '2011-01-27');
+insert into people_certifications (pcID, pID, cID, received) values (7, 5, 1, '2016-07-06');
+insert into people_certifications (pcID, pID, cID, received) values (8, 1, 6, '2012-05-13');
+insert into people_certifications (pcID, pID, cID, received) values (9, 3, 3, '2010-09-05');
+insert into people_certifications (pcID, pID, cID, received) values (10, 1, 5, '2011-07-02');

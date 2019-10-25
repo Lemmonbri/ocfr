@@ -54,60 +54,15 @@
       </div>
     </nav>
 
+    <div class="container">
+      <h1 class="heading">Add a Member's Certification</h1>
+    </div>
+
+    <br>
 
     <div id="certMemb">
       <div class="container">
-        <div class="row">
-          <h1 class="heading col-12"> Member Certifications </h1>
-        </div>
-        <div class="row">
-          <div class="offset-10 col-1">
-            <button onclick="exportTableToCSV('membCerts.csv')" class="btn btn-primary">Download</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div>
-              <table class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">pcID</th>
-                    <th scope="col">pID</th>
-                    <th scope="col">Member</th>
-                    <th scope="col">cID</th>
-                    <th scope="col">Certfication</th>
-                    <th scope="col">Date Received</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="pc in peopleCert" @click="handleRowClick(pc)">
-                    <th scope="row">{{ pc.pcID }}</th>
-                    <td>{{ pc.pID }}</td>
-                    <th>{{ pc.firstName }} {{ pc.lastName }}</th>
-                    <td>{{ pc.cID }}</td>
-                    <td>{{ pc.cName }}</td>
-                    <td>{{ pc.received }}</td>
-                    <td><button type="button" class="btn btn-danger" v-on:click="handleRowClick(pc)">View</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <br>
-      <br>
-
-      <div class="container">
-        <form @submit.prevent="handleUpdate">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputpcID">pcID</label>
-              <input type="text" class="form-control" id="pcID" v-model="selection.pcID" placeholder="#" readonly>
-            </div>
-          </div>
+        <form @submit.prevent="handleSubmit">
           <div class="form-group">
             <label for="selectMember">Select Member</label>
             <select class="form-control" v-model="selection.pID">
@@ -124,14 +79,7 @@
             <label for="inputStartDate">Date Received</label>
             <input type="date" class="form-control" v-model="selection.received">
           </div>
-          <div class="row">
-            <div class="col-3">
-              <button type="submit" class="btn btn-primary">Update</button>
-            </div>
-            <div class="col-3 offset-6">
-              <button type="" class="btn btn-danger" v-on:click="handleDelete">Delete</button>
-            </div>
-          </div>
+          <button type="submit" class="btn btn-primary">Add Member</button>
         </form>
       </div>
     </div>
