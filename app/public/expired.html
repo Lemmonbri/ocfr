@@ -61,7 +61,7 @@
     <div class="container">
       <h1 class="heading">Expired Certifications </h1>
       <div id="viewExpired">
-        <table class="table">
+        <table class="table" id="sortTable">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Memeber Name</th>
@@ -88,6 +88,12 @@
 
     <!-- Optional JavaScript -->
     <script src="js/viewExpired.app.js"></script>
+
+    <script src='js/tablesort.min.js'></script>
+    <!--Tablesort from http://tristen.ca/tablesort/demo/-->
+    <script>
+      new Tablesort(document.getElementById('sortTable'));
+    </script>
 
   </body>
 </html>

@@ -75,7 +75,7 @@
       <div class="row">
         <div class="col-12">
           <div id="viewMembs">
-            <table class="table">
+            <table class="table" id="sortTable">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">pId</th>
@@ -204,6 +204,12 @@
 
     <!--- Code by CodexWorld found here: https://www.codexworld.com/export-html-table-data-to-csv-using-javascript/ -->
     <script src="js/downloadCSV.app.js"></script>
+
+    <script src='js/tablesort.min.js'></script>
+    <!--Tablesort from http://tristen.ca/tablesort/demo/-->
+    <script>
+      new Tablesort(document.getElementById('sortTable'));
+    </script>
 
   </body>
 </html>

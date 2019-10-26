@@ -71,7 +71,7 @@
         <div class="row">
           <div class="col-12">
             <div>
-              <table class="table">
+              <table class="table" id="sortTable">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">pcID</th>
@@ -149,6 +149,12 @@
 
     <!-- Optional JavaScript -->
     <script src="js/certMemb.app.js"></script>
+
+    <script src='js/tablesort.min.js'></script>
+    <!--Tablesort from http://tristen.ca/tablesort/demo/-->
+    <script>
+      new Tablesort(document.getElementById('sortTable'));
+    </script>
 
   </body>
 </html>
