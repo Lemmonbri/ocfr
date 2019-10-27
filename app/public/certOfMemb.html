@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Certification</title>
+    <title>Hello, world!</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -60,7 +60,7 @@
 
     <div class="container">
       <div class="row">
-        <h1 class="heading col-12"> Certifications </h1>
+        <h1 class="heading col-12"> Certifications</h1>
       </div>
       <div class="row">
         <div class="offset-10 col-1">
@@ -69,7 +69,7 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <div id="viewCert">
+          <div id="viewMembs">
             <table class="table" id="sortTable">
               <thead class="thead-dark">
                 <tr>
@@ -81,7 +81,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="c in certifications" @click="handleRowClick(c)">
+                <tr v-for="c in certOfMemb" @click="handleRowClick(c)">
                   <th scope="row">{{ c.cID }}</th>
                   <td>{{ c.cName }}</td>
                   <td>{{ c.cAgency }}</td>
@@ -90,52 +90,11 @@
                 </tr>
               </tbody>
             </table>
-
-            <button type="" class="btn btn-primary" v-on:click="redirectPage(certification.cID)">View People with selected Certification</button>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <div id="certAdd">
-        <form @submit.prevent="handleUpdate">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputcID">cID</label>
-              <input type="text" class="form-control" id="cID" v-model="certification.cID" placeholder="#" readonly>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputCertName">Certification Name</label>
-              <input type="text" class="form-control" id="certName" v-model="certification.cName" placeholder="Certification Name">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputCertAgency">Certifying Agency</label>
-              <input type="text" class="form-control" id="certAgency" v-model="certification.cAgency" placeholder="Certifying Agency">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputExpirationDate">Expiration Period</label>
-              <input type="number" class="form-control" id="expPeriod" v-model="certification.expPeriod">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-3">
-              <button type="submit" class="btn btn-primary">Update Certification</button>
-            </div>
-            <div class="col-3 offset-6">
-              <button type="" class="btn btn-danger" v-on:click="handleDelete">Delete Certification</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <br>
-    <br>
-    <br>
-
-
-
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -143,16 +102,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- Optional JavaScript -->
-    <script src="js/viewCerts.app.js"></script>
-    <script src="js/certAdd.app.js"></script>
-
-    <!--- Code by CodexWorld found here: https://www.codexworld.com/export-html-table-data-to-csv-using-javascript/ -->
-    <script src="js/downloadCSV.app.js"></script>
+    <script src="js/viewMembs.app.js"></script>
 
     <script src='js/tablesort.min.js'></script>
     <!--Tablesort from http://tristen.ca/tablesort/demo/-->
     <script>
       new Tablesort(document.getElementById('sortTable'));
     </script>
+
   </body>
 </html>
