@@ -29,7 +29,6 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="expired.html">Expired Certifications</a>
-              <a class="dropdown-item" href="members.html">Member Details</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -48,6 +47,15 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="membList.html">View Members</a>
               <a class="dropdown-item" href="membAdd.html">Add Member</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Members/Certifications
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="membCert.html">View Member's Certifications</a>
+              <a class="dropdown-item" href="membCertAdd.html">Add Member's Certification</a>
             </div>
           </li>
         </ul>
@@ -79,7 +87,7 @@
             <label for="inputStartDate">Date Received</label>
             <input type="date" class="form-control" v-model="selection.received">
           </div>
-          <button type="submit" class="btn btn-primary">Add Member</button>
+          <button type="submit" class="btn btn-primary">Add Member's Certification</button>
         </form>
       </div>
     </div>

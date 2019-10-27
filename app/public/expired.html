@@ -29,7 +29,6 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="expired.html">Expired Certifications</a>
-              <a class="dropdown-item" href="members.html">Member Details</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -50,6 +49,15 @@
               <a class="dropdown-item" href="membAdd.html">Add Member</a>
             </div>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Members/Certifications
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="membCert.html">View Member's Certifications</a>
+              <a class="dropdown-item" href="membCertAdd.html">Add Member's Certification</a>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
@@ -59,24 +67,35 @@
     <br>
 
     <div class="container">
-      <h1 class="heading">Expired Certifications </h1>
-      <div id="viewExpired">
-        <table class="table" id="sortTable">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Memeber Name</th>
-              <th scope="col">Certification Name</th>
-              <th scope="col">Exp. Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="e in expired">
-              <th scope="row">{{e.firstName}} {{e.lastName}}</th>
-              <td>{{e.cName}}</td>
-              <td>{{e.dateExpired}}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row">
+        <div class="col-12">
+          <h1 class="heading">Expired Certifications </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-10 col-1">
+          <button onclick="exportTableToCSV('expired.csv')" class="btn btn-primary">Download</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12" id="viewExpired">
+          <table class="table" id="sortTable">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Memeber Name</th>
+                <th scope="col">Certification Name</th>
+                <th scope="col">Exp. Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="e in expired">
+                <th scope="row">{{e.firstName}} {{e.lastName}}</th>
+                <td>{{e.cName}}</td>
+                <td>{{e.dateExpired}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
     <!-- Optional JavaScript -->
@@ -90,6 +109,10 @@
     <script src="js/viewExpired.app.js"></script>
 
     <script src='js/tablesort.min.js'></script>
+
+    <!--- Code by CodexWorld found here: https://www.codexworld.com/export-html-table-data-to-csv-using-javascript/ -->
+    <script src="js/downloadCSV.app.js"></script>
+
     <!--Tablesort from http://tristen.ca/tablesort/demo/-->
     <script>
       new Tablesort(document.getElementById('sortTable'));

@@ -34,5 +34,6 @@ CREATE TABLE people_certifications(
 	cID int,
   received DATE,
 	FOREIGN KEY (pID) REFERENCES people(pID),
-  FOREIGN KEY (cID) REFERENCES certifications(cID)
+  FOREIGN KEY (cID) REFERENCES certifications(cID),
+	ON DELETE CASCADE
 );
